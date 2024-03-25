@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/update-users/{user_id}':
+    post:
+      summary: ''
+      operationId: postApiUpdateUsersUser_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: ''
+                  example: vel
+                last_name:
+                  type: string
+                  description: "'middle_name' => 'required',."
+                  example: sint
+                email:
+                  type: string
+                  description: ''
+                  example: alias
+                active:
+                  type: string
+                  description: ''
+                  example: qui
+              required:
+                - first_name
+                - last_name
+                - email
+                - active
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 15
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
