@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ ! -f "vendor/autoload.php" ]; then
     composer install --no-progress --no-interaction
 fi
@@ -10,17 +11,16 @@ if [ ! -f ".env" ]; then
 else
     echo "env file exists."
 fi
+
 cd /var/www/
 
 php artisan key:generate
 php artisan migrate
+
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
 php artisan optimize
-
-
-chmod 777 /var/www/storage/logs/laravel.log
 
 role=${CONTAINER_ROLE:-app}
 
@@ -41,4 +41,4 @@ elif [ "$role" = "websocket" ]; then
 fi
 
 php artisan db:seed
-php artisan optimize   
+php artisan optimize
